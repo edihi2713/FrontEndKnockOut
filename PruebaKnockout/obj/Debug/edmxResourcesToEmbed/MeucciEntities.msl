@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Meucci3ModelStoreContainer" CdmEntityContainer="Meucci3Entities">
+    <EntitySetMapping Name="Carreras">
+      <EntityTypeMapping TypeName="Meucci3Model.Carreras">
+        <MappingFragment StoreEntitySet="Carreras">
+          <ScalarProperty Name="crrCarreraId" ColumnName="crrCarreraId" />
+          <ScalarProperty Name="crrDescripcion" ColumnName="crrDescripcion" />
+          <ScalarProperty Name="crrObservacion" ColumnName="crrObservacion" />
+          <ScalarProperty Name="crrAnulado" ColumnName="crrAnulado" />
+          <ScalarProperty Name="crrFechaCreacion" ColumnName="crrFechaCreacion" />
+          <ScalarProperty Name="empEmpleadoIdCreador" ColumnName="empEmpleadoIdCreador" />
+          <ScalarProperty Name="crrFechaDesde" ColumnName="crrFechaDesde" />
+          <ScalarProperty Name="crrFechaHasta" ColumnName="crrFechaHasta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

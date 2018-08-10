@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Meucci3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Carreras">
+          <Key>
+            <PropertyRef Name="crrCarreraId" />
+          </Key>
+          <Property Name="crrCarreraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="crrDescripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="crrObservacion" Type="nvarchar" MaxLength="150" />
+          <Property Name="crrAnulado" Type="bit" Nullable="false" />
+          <Property Name="crrFechaCreacion" Type="datetime" />
+          <Property Name="empEmpleadoIdCreador" Type="int" />
+          <Property Name="crrFechaDesde" Type="datetime" Nullable="false" />
+          <Property Name="crrFechaHasta" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="Meucci3ModelStoreContainer">
+          <EntitySet Name="Carreras" EntityType="Self.Carreras" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Meucci3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Carreras">
+          <Key>
+            <PropertyRef Name="crrCarreraId" />
+          </Key>
+          <Property Name="crrCarreraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="crrDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="crrObservacion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="crrAnulado" Type="Boolean" Nullable="false" />
+          <Property Name="crrFechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="empEmpleadoIdCreador" Type="Int32" />
+          <Property Name="crrFechaDesde" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="crrFechaHasta" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="Meucci3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Carreras" EntityType="Self.Carreras" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Meucci3ModelStoreContainer" CdmEntityContainer="Meucci3Entities">
+          <EntitySetMapping Name="Carreras">
+            <EntityTypeMapping TypeName="Meucci3Model.Carreras">
+              <MappingFragment StoreEntitySet="Carreras">
+                <ScalarProperty Name="crrCarreraId" ColumnName="crrCarreraId" />
+                <ScalarProperty Name="crrDescripcion" ColumnName="crrDescripcion" />
+                <ScalarProperty Name="crrObservacion" ColumnName="crrObservacion" />
+                <ScalarProperty Name="crrAnulado" ColumnName="crrAnulado" />
+                <ScalarProperty Name="crrFechaCreacion" ColumnName="crrFechaCreacion" />
+                <ScalarProperty Name="empEmpleadoIdCreador" ColumnName="empEmpleadoIdCreador" />
+                <ScalarProperty Name="crrFechaDesde" ColumnName="crrFechaDesde" />
+                <ScalarProperty Name="crrFechaHasta" ColumnName="crrFechaHasta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

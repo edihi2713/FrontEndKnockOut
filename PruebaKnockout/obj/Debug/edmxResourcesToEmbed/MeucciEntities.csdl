@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Meucci3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Carreras">
+    <Key>
+      <PropertyRef Name="crrCarreraId" />
+    </Key>
+    <Property Name="crrCarreraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="crrDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="crrObservacion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="crrAnulado" Type="Boolean" Nullable="false" />
+    <Property Name="crrFechaCreacion" Type="DateTime" Precision="3" />
+    <Property Name="empEmpleadoIdCreador" Type="Int32" />
+    <Property Name="crrFechaDesde" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="crrFechaHasta" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityContainer Name="Meucci3Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Carreras" EntityType="Self.Carreras" />
+  </EntityContainer>
+</Schema>

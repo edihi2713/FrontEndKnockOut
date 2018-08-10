@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Meucci3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Carreras">
+    <Key>
+      <PropertyRef Name="crrCarreraId" />
+    </Key>
+    <Property Name="crrCarreraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="crrDescripcion" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="crrObservacion" Type="nvarchar" MaxLength="150" />
+    <Property Name="crrAnulado" Type="bit" Nullable="false" />
+    <Property Name="crrFechaCreacion" Type="datetime" />
+    <Property Name="empEmpleadoIdCreador" Type="int" />
+    <Property Name="crrFechaDesde" Type="datetime" Nullable="false" />
+    <Property Name="crrFechaHasta" Type="datetime" />
+  </EntityType>
+  <EntityContainer Name="Meucci3ModelStoreContainer">
+    <EntitySet Name="Carreras" EntityType="Self.Carreras" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
