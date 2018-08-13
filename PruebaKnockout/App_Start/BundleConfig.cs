@@ -11,6 +11,23 @@ namespace PruebaKnockout
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+
+            // para incluuir el bootstrap
+            bundles.Add(new ScriptBundle("~/bundles/bootstrapjs").Include(
+                    "~/Scripts/bootstrap.js"
+                ));
+
+
+            bundles.Add(new StyleBundle("~/Content/bootstrapcss").Include(
+                "~/Content/bootstrap.css"
+                ));
+
+            // incluir knockout
+
+            bundles.Add(new ScriptBundle("~/bundles/knockout.js").Include(
+                "~/Scripts/knockout-3.4.2.js"
+              ));
+
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
 
@@ -38,6 +55,9 @@ namespace PruebaKnockout
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+
+            System.Web.Optimization.BundleTable.EnableOptimizations = false;
         }
     }
 }

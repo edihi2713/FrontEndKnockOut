@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="jumbotron" data-bind="dropUpload: filesuploaded">
+    <h2>Zona Descargar</h2>
+    
+    <p>
+        <b>Información: </b>
+
+        Puede arrastrar los archivos  y doble click para subir.
+    </p>
+</div>
+
+
+<div class="container">
+    <h2>Lista de archivos</h2>
+    <ul class="list-group" data-bind="foreach: filesuploaded">
+          <li class="list-group-item alert-info">
+            <b class="" data-bind="text: name"></b>
+            <i class="glyphicon glyphicon-trash pull-right" style="cursor:pointer" data-bind="click: $parent.deleteSelectedFile"></i>
+        </li>
+     </ul>
+</div>
+
+<div class="container">
+    <button class="btn btn-info" data-bind="click: save"><i class="glyphicon glyphicon-hand-up" style="padding-right:10px"></i>Upload</button>
+    <button class="btn btn-info" data-bind="click: testMethod"><i class="glyphicon glyphicon-flash" style="padding-right:10px"></i>Metodo Prueba</button>
+
+</div>
+
+
+
+
+<script type="text/javascript">
+        
+    var index = index || {
+        indexVM: {
+            filesuploaded: ko.observableArray(),
+            save: function () {
+               
+                console.log(index.indexVM.filesuploaded());
+             
+                for (var i = 0; i < index.indexVM.filesuploaded().length; i++) {
+                    var data = new FormData();
+                    data.append('file', index.indexVM.filesuploaded()[i]);
+
+                    $.ajax({
+                        url: "http://localhost:61197/api/Upload",
+                        data: data,
+                        method: "POST",
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                    }).done(function (data) {
+                        alert(data);
+                        console.log(data);
+                    }).fail(function (data) {
+                        alert(data.responseText);   
+                        console.log(data);
+                    });
+                }
+            },
+            deleteSelectedFile: function (item) {
+                index.indexVM.filesuploaded.remove(item);
+            },
+
+            testMethod: function () {
+                alert("Hola Hermanito!!");
+            }
+        },
+    }
+
+
+
+    ko.bindingHandlers.dropUpload = {
+        init: function (element, valueAccesor, allBindings, viewModel, bindingContext) {
+            var value = valueAccesor();
+
+            $(element).on('drop dragdrop', function (event) {
+                event.preventDefault();
+
+                var value = valueAccesor();
+                for (var i = 0; i < event.originalEvent.dataTransfer.files.length; i++) {
+                    value.push(event.originalEvent.dataTransfer.files[i]);
+                }
+
+                $(element).removeClass('dropbackground');
+            });
+
+            $(element).append('<input type="file" style="display:none" />');
+
+            $(element).dblclick(function () {
+                $(element).find('input:file').click();
+            });
+
+            $(element).find('input:file').change(function () {
+                value.push($(this).get(0).files[0]);
+            });
+
+
+            $(element).on('dragenter', function (event) {
+                $(this).addClass('dropbackground');
+            });
+
+            $(element).on('dragleave', function () {
+                $(this).css('background-color', 'red');
+            });
+
+            $(element).on('dragover', function (event) {
+                event.preventDefault();
+            });
+        }
+    }
+
+    ko.applyBindings(index.indexVM);
+
+</script>

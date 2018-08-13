@@ -12,5 +12,10 @@ namespace PruebaKnockout.Controllers
         {
             return View("Index1");
         }
+
+        public ActionResult Upload()
+        {
+            return View();
+        }
     }
 }

@@ -5,10 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+     @Styles.Render("~/Content/bootstrapcss")
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+     @Scripts.Render("~/bundles/knockout.js")
+    @Scripts.Render("~/bundles/jquery")
+
+ 
 </head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <body>
     <header>
         <div class="content-wrapper">
@@ -28,7 +31,10 @@
     </header>
     @RenderBody()
 
-    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrapjs")
+
+
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>
